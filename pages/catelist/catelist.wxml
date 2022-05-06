@@ -1,0 +1,17 @@
+<view wx:if="{{catelist.length}}">
+    <view bindtap="goquestion" class="special-title" data-time="{{item.time}}" data-number="{{item.number}}" data-id="{{item.id}}" data-name="{{item.name}}" data-passf="{{item.passf}}" wx:for="{{catelist}}" wx:key="key">
+        <view style="display:block;">
+            <view style="display:flex;align-items: center;">
+                <view class="icon">{{index+1}}</view>
+                <text>{{item.name}}</text>
+            </view>
+            <!-- <view class="num">{{item.question_ids.length}}</view> -->
+        </view>
+        <view>
+            <image class="direction" src="/images/jkt/right.png"></image>
+        </view>
+    </view>
+</view>
+<view class="errorstat" wx:if="{{!catelist.length}}">
+    <text>该课程暂无题目</text>
+</view>

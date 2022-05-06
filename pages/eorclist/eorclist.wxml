@@ -1,0 +1,25 @@
+<view wx:if="{{catelist.length}}">
+    <view bindtap="goquestion" class="special-title" data-time="{{item.time}}" data-id="{{item.id}}" data-name="{{item.name}}" data-ids="{{item.ids}}" wx:if="{{item.count > 0}}" wx:for="{{catelist}}" wx:key="key">
+        <view style="display:block;">
+            <view style="display:flex;align-items: center;">
+                <view class="icon">{{index+1}}</view>
+                <text>{{item.name}}（{{item.count}}）</text>
+            </view>
+            <!-- <view class="num">{{item.question_ids.length}}</view> -->
+        </view>
+        <view>
+            <image class="direction" src="/images/jkt/right.png"></image>
+        </view>
+    </view>
+    <view class="remove" wx:if="{{ind == 0 && count}}">
+        <text>答对后自动移除错题集</text>
+        <switch bindchange="switchChange" checked="{{autoRemove}}" class="switch"></switch>
+    </view>
+</view>
+<view class="errorstat" wx:if="{{!count && ind == 0}}">
+    <text>该课程暂无错题</text>
+</view>
+
+<view class="errorstat" wx:if="{{!count && ind == 1}}">
+    <text>该课程暂无收藏</text>
+</view>
